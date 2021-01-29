@@ -1,6 +1,8 @@
 package myfirstpackage;
 
+import mysecondpackage.main.Cat;
 import mysecondpackage.main.Dog;
+import mysecondpackage.main.Pet;
 
 public class SecondClass {
 
@@ -9,6 +11,26 @@ public class SecondClass {
         int[] nums = {0, 2, 5, 7, 8};
         int index = SecondClass.binarySearch(nums, 8);
         System.out.println(index);
+
+        Dog myDog = new Dog("Stark", 7);
+
+
+        Pet cat = new Cat("Belle");
+        Pet dog = new Dog("Stark", 7);
+
+
+        Dog myCastedDog = (Dog) dog;
+
+        // myCastedDog.bark();
+
+
+        // Dog dog = (Dog) pet;
+        // dog.bark();
+
+        // System.out.println(pet.getName());
+
+        // myDog.getName();
+        // pet.makeSound();
 
 
         /*SecondClass sc = new SecondClass();

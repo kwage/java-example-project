@@ -1,30 +1,30 @@
 package mysecondpackage.main;
 
-public class Dog {
+public class Dog extends Pet {
 
     // Class Variables
     public static final String taxonomy = "Canis";
 
-    private final String myDogsName;
     private int myDogsAge;
     private final String myDogsLastName;
 
 
     // Constructor
     public Dog(String firstName, String lastName, int dogsAge) {
-        this.myDogsName = firstName;
+        super(firstName);
         this.myDogsLastName = lastName;
         this.myDogsAge = dogsAge;
     }
 
     public Dog(int dogsAge, String firstName, String lastName) {
-        this.myDogsName = firstName;
+        super(1, firstName);
+
         this.myDogsLastName = lastName;
         this.myDogsAge = dogsAge;
     }
 
     public Dog(String dogsName, int dogsAge) {
-        this.myDogsName = dogsName;
+        super( 1, dogsName);
         this.myDogsAge = dogsAge;
         this.myDogsLastName = "";
     }
@@ -35,7 +35,7 @@ public class Dog {
 
     // Getters and Setters
 
-    public String getMyDogsName() { return this.myDogsName; }
+    public String getMyDogsName() { return this.getName(); }
 
     // public void setMyDogsName(String dogsName) { this.myDogsName = dogsName; }
 
@@ -44,8 +44,14 @@ public class Dog {
     public void bark() { System.out.println("Bark"); }
 
     @Override
+    public void makeSound() {
+        System.out.println("Bark!");
+    }
+
+
+    @Override
     public String toString() {
-        return "My dogs name is: " + this.myDogsName;
+        return "My dogs name is: " + this.getName();
     }
 
     @Override
@@ -56,7 +62,7 @@ public class Dog {
         }
         if (!(obj instanceof Dog)) return false;
         Dog dog = (Dog) obj;
-        if (dog.myDogsName.equals(this.myDogsName)) return true;
+        if (dog.getName().equals(this.getName())) return true;
         else return false;
     }
 }
